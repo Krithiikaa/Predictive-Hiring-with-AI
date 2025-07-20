@@ -12,4 +12,3 @@ spacy
 transformers
 cohere
 supabase
-supabase-py

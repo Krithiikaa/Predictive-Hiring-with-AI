@@ -73,7 +73,21 @@ current_title_map_rev = {v: k for k, v in current_title_map.items()}
 location_map_rev = {v: k for k, v in location_map.items()}
 
 # ---------------------------- Load Model ----------------------------
-model_path = 'C:/Users/ASUS/Desktop/predictive-hiring-app/backend/model/predictive_model.pkl'
+import os
+import pickle
+
+# Compute path to THIS script’s directory
+HERE = os.path.dirname(__file__)
+
+# Build a path to …/backend/model/predictive_model.pkl
+model_path = os.path.normpath(
+    os.path.join(HERE, "..", "backend", "model", "predictive_model.pkl")
+)
+
+# Load the model
+with open(model_path, "rb") as f:
+    model = pickle.load(f)
+
 model = pickle.load(open(model_path, 'rb'))
 
 # ---------------------------- Home Page ----------------------------

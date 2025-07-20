@@ -19,7 +19,16 @@ supabase: Client = create_client(url, key)
 
 # ---------------------------- Setup ----------------------------
 st.set_page_config(page_title="AI Hiring Predictor", layout="wide")
-banner = Image.open("assets/banner.png")
+import os
+from PIL import Image
+
+# Compute the path to this file's directory
+HERE = os.path.dirname(__file__)
+
+# Build a cross‑platform path to your assets folder
+banner_path = os.path.join(HERE, "assets", "banner.png")
+banner = Image.open(banner_path)
+
 st.image(banner, use_container_width=True)
 
 # ---------------------------- Initialize Session ----------------------------

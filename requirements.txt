@@ -11,4 +11,5 @@ opencv-python-headless
 spacy
 transformers
 cohere
+supabase
 supabase-py

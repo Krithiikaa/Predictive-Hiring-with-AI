@@ -82,7 +82,7 @@ predictive-hiring-app/
    ```
    SUPABASE_URL=your_supabase_url
    SUPABASE_KEY=your_supabase_anon_key
-   OPENAI_API_KEY=your_openai_key
+   COHERA_KEY=your_cohera_api_key
    ```
 
 5. **Run the App**

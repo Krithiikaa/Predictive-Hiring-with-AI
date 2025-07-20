@@ -525,17 +525,33 @@ def load_hiring_data():
 
 
 # ------------------ Cohere Chatbot Integration ------------------
-import cohere
+import os
 import streamlit as st
 import pandas as pd
+import cohere
 
-# ✅ Replace with your actual Cohere API key or use st.secrets
+# ──────────────────────────────────────────────────────────────────────────────
+# 1) Cohere Client Initialization
+# ──────────────────────────────────────────────────────────────────────────────
+# Replace with your actual key or use st.secrets["cohere"]["api_key"]
 co = cohere.Client("xtBhLSqb5EbmwfQe0ylkrdTNgiIvy7JGbR3JgpJS")
 
-# Chatbot function using Cohere
+# ──────────────────────────────────────────────────────────────────────────────
+# 2) Load Dataset for Chatbot Context
+# ──────────────────────────────────────────────────────────────────────────────
+@st.cache_data
+def load_hiring_data():
+    HERE = os.path.dirname(__file__)
+    csv_path = os.path.normpath(
+        os.path.join(HERE, "..", "dataset", "hiring_data.csv")
+    )
+    return pd.read_csv(csv_path)
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 3) Chatbot Logic
+# ──────────────────────────────────────────────────────────────────────────────
 def ask_cohere_chatbot(user_query, df):
     context = df.head(5).to_string(index=False)
-
     prompt = f"""
 You are an AI hiring assistant trained on candidate data.
 
@@ -547,20 +563,20 @@ User query: {user_query}
 
 Respond appropriately:
 """
-
     try:
         response = co.generate(
-            model="command-r-plus",  # You can try "command-xlarge-nightly" if supported
+            model="command-r-plus",
             prompt=prompt,
             max_tokens=300,
             temperature=0.5
         )
         return response.generations[0].text.strip()
-
     except Exception as e:
         return f"❌ Error from Cohere: {str(e)}"
 
-# ------------------ Sidebar Chatbot Toggle ------------------
+# ──────────────────────────────────────────────────────────────────────────────
+# 4) Sidebar Toggle
+# ──────────────────────────────────────────────────────────────────────────────
 if "show_chat" not in st.session_state:
     st.session_state.show_chat = False
 
@@ -568,7 +584,9 @@ with st.sidebar:
     st.markdown("## 🤖 AI Chatbot")
     st.session_state.show_chat = st.checkbox("💬 Enable Cohere Chatbot")
 
-# ------------------ Display Chatbot UI ------------------
+# ──────────────────────────────────────────────────────────────────────────────
+# 5) Display Chatbot UI
+# ──────────────────────────────────────────────────────────────────────────────
 if st.session_state.show_chat:
     st.markdown("""
         <style>
@@ -589,20 +607,10 @@ if st.session_state.show_chat:
         </div>
     """, unsafe_allow_html=True)
 
-    # 👇 Make sure this function exists and returns your uploaded CSV
-    import os
+    # Load data once
+    df_chat = load_hiring_data()
 
-@st.cache_data
-def load_hiring_data():
-    # Get the directory of this script
-    HERE = os.path.dirname(__file__)
-    # Construct the path to the dataset folder at project root
-    csv_path = os.path.normpath(
-        os.path.join(HERE, "..", "dataset", "hiring_data.csv")
-    )
-    return pd.read_csv(csv_path)
-
-
+    # The question input
     user_query = st.text_input("Type your question about hiring insights:")
 
     if user_query:

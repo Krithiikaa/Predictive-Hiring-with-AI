@@ -1,18 +1,3 @@
-# Predictive-Hiring-with-AI
-
-Here's a **clean, professional, and visually appealing `README.md`** tailored for your **Predictive Hiring with AI** project. It includes:
-
-* Project Overview
-* Features
-* Tech Stack
-* Setup Instructions
-* Deployment Info
-* Placeholder for Team Members
-* Demo Badge and Screenshot Support
-
----
-
-### ✅ `README.md` for Your Project
 
 ````markdown
 # 🤖 Predictive Hiring with AI

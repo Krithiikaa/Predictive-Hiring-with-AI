@@ -590,7 +590,18 @@ if st.session_state.show_chat:
     """, unsafe_allow_html=True)
 
     # 👇 Make sure this function exists and returns your uploaded CSV
-    df_chat = load_hiring_data()
+    import os
+
+@st.cache_data
+def load_hiring_data():
+    # Get the directory of this script
+    HERE = os.path.dirname(__file__)
+    # Construct the path to the dataset folder at project root
+    csv_path = os.path.normpath(
+        os.path.join(HERE, "..", "dataset", "hiring_data.csv")
+    )
+    return pd.read_csv(csv_path)
+
 
     user_query = st.text_input("Type your question about hiring insights:")
 

@@ -1,9 +1,9 @@
+streamlit
 pandas
 numpy
 matplotlib
 scipy
 scikit-learn
-streamlit
 pdfplumber
 pytesseract
 python-docx
@@ -12,3 +12,4 @@ spacy
 transformers
 cohere
 supabase
+python-dotenv

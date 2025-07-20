@@ -5,6 +5,20 @@ import os
 import matplotlib.pyplot as plt
 from PIL import Image
 import csv
+from supabase import create_client, Client
+from dotenv import load_dotenv
+import os
+
+# Load .env values
+from supabase import create_client, Client
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+url = os.getenv("SUPABASE_URL")
+key = os.getenv("SUPABASE_KEY")
+supabase: Client = create_client(url, key)
+
 
 # ---------------------------- Setup ----------------------------
 st.set_page_config(page_title="AI Hiring Predictor", layout="wide")
@@ -30,17 +44,16 @@ if not os.path.exists("users.csv"):
 
 # ---------------------------- Functions ----------------------------
 def check_credentials(username, password):
-    df = pd.read_csv("users.csv")
-    return ((df["username"] == username) & (df["password"] == password)).any()
+    response = supabase.table("users").select("*").eq("username", username).eq("password", password).execute()
+    return len(response.data) > 0
 
 def add_new_user(username, password):
-    df = pd.read_csv("users.csv")
-    if username in df["username"].values:
+    existing_user = supabase.table("users").select("*").eq("username", username).execute()
+    if existing_user.data:
         return False
-    with open("users.csv", "a", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow([username, password])
+    supabase.table("users").insert({"username": username, "password": password}).execute()
     return True
+
 
 # ---------------------------- Mappings ----------------------------
 job_role_map = {"Software Engineer": 340, "Data Analyst": 350, "ML Engineer": 360}

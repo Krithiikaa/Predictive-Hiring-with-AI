@@ -9,16 +9,13 @@ from supabase import create_client, Client
 from dotenv import load_dotenv
 import os
 
-# Load .env values
+import streamlit as st
 from supabase import create_client, Client
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-url = os.getenv("SUPABASE_URL")
-key = os.getenv("SUPABASE_KEY")
+# Supabase via Streamlit Secrets
+url: str = st.secrets["supabase"]["url"]
+key: str = st.secrets["supabase"]["key"]
 supabase: Client = create_client(url, key)
-
 
 # ---------------------------- Setup ----------------------------
 st.set_page_config(page_title="AI Hiring Predictor", layout="wide")

@@ -1,48 +1,62 @@
 
-````markdown
 # 🤖 Predictive Hiring with AI
 
-An Intelligent Streamlit-based web application that helps companies **predict a candidate's hiring potential** using Machine Learning. It streamlines the evaluation process using AI insights and offers additional tools like **resume screening, ATS-friendliness analysis**, and user history tracking.
+An intelligent, Streamlit-based web app that predicts a candidate's **hiring potential** using Machine Learning. It simplifies recruitment workflows with tools like **ATS-friendliness checks**, **resume analysis**, and **chatbot-guided user interaction**.
+
+---
+
+![Banner](frontend/assets/banner.png)
 
 ---
 
 ## 🚀 Features
 
-- 🔍 **Predict Hiring Suitability** based on user input (education, experience, job role, etc.)
-- 🧠 **ML Model Integration** for accurate predictions
-- 📝 **Resume Upload & ATS Friendliness Check**
-- 💬 **Built-in Chatbot** to guide users through the hiring process
-- 🧾 **User Authentication & History Tracking** (Supabase integrated)
-- ☁️ **Streamlit UI** – fast, interactive, and responsive
-- 📊 **Real-time Data Updates** with Supabase (no local CSVs)
-- 🖼️ **Attractive Banner and Theming**
+- ✅ **ML-based Hiring Suitability Prediction**
+- 🧠 Integrated **Scikit-learn Model**
+- 📄 **Resume Upload & ATS Friendliness Analyzer**
+- 💬 **OpenAI-powered Chatbot** for interview guidance
+- 👤 **User Authentication & History Logs** via Supabase
+- ⚡ **Fast, Responsive UI** built with Streamlit
+- ☁️ **Supabase DB** for real-time user & activity tracking
 
 ---
 
 ## 🛠️ Tech Stack
+```bash
 
-| Component       | Tech Used                |
-|----------------|---------------------------|
-| Frontend       | Streamlit, HTML/CSS       |
-| Backend        | Python, FastAPI (optional)|
-| ML Model       | Scikit-learn, Pandas      |
-| Database       | Supabase (PostgreSQL)     |
-| Auth & History | Supabase Auth + RLS       |
-| Hosting        | GitHub + Streamlit Cloud  |
-
+| Layer         | Technologies Used                           |
+|---------------|---------------------------------------------|
+| 💻 Frontend    | Streamlit, HTML/CSS                        |
+| 🧠 Backend     | Python, FastAPI (optional)                 |
+| 📊 ML Model    | Scikit-learn, Pandas                       |
+| 🗃️ Database     | Supabase (PostgreSQL)                     |
+| 🔐 Auth        | Supabase Auth + RLS                        |
+| 🌍 Hosting     | GitHub + Streamlit Cloud                   |
+```
 ---
 
-## 📸 Demo
+## 📁 Project Structure
 
-<!-- Uncomment below if you have a demo video or image -->
-<!-- ![App Screenshot](assets/screenshot.png) -->
+```bash
+predictive-hiring-app/
+├── requirements.txt
+├── backend/
+│   ├── model/
+│   │   ├── predictive_model.pkl
+│   │   └── train_model.py
+│   └── dataset/
+│       └── hiring_data.csv
+├── frontend/
+│   ├── app_ui_only.py
+│   ├── hiring_assistant.py
+│   ├── .streamlit/
+│   │   └── secrets.toml
+│   └── assets/
+│       └── banner.png
+```
 
-> 🧪 Try it here: [Live Demo Link](#) *(Add your Streamlit deployment link once hosted)*
-
----
-
-## 👩‍💻 Local Setup
-
+## 👩‍💻 Local Setup##
+```bash
 1. **Clone the Repo**
    ```bash
    git clone https://github.com/Krithiikaa/Predictive-Hiring-with-AI.git
@@ -78,6 +92,50 @@ An Intelligent Streamlit-based web application that helps companies **predict a 
 
 ---
 
+🎯 How It Works
+User submits the candidate details via a form.
+
+The trained ML model predicts whether the candidate is suitable (Hired or Not Hired).
+
+The result page shows:
+
+Prediction result
+
+Personalized suggestions for improvement
+
+Feature importance graph
+
+Admin can log in to:
+
+View historical predictions
+
+Analyze hiring trends via graphs
+
+🧠 Machine Learning Model
+Trained using scikit-learn based on features like experience, interview score, certifications, etc.
+
+Saved as predictive_model.pkl in the backend/model/ folder.
+
+Re-trainable via train_model.py.
+
+💬 Chatbot Assistant (Optional Feature)
+Integrated support chatbot available in Hiring_assistant.py.
+
+Can answer predefined HR queries or interact via API (OpenAI or local).
+
+🔒 Authentication
+Login page available for both Admin and User
+
+Credentials stored in users.csv
+
+Access-based redirection to:
+
+Prediction Form (User)
+
+Admin Dashboard (Admin)
+
+
+
 ## 🌐 Deployment Instructions (Streamlit Cloud)
 
 1. Push your code to GitHub
@@ -88,16 +146,20 @@ An Intelligent Streamlit-based web application that helps companies **predict a 
 
 ---
 
-## 👥 Team Members
 
-| Name                    | Role                                           |
-| ----------------------- | ---------------------------------------------- |                 
-| Kiruthigaa K            | Project Lead, Developer- ATS & ChatBot         |
-| Pooja M                 | Project Lead, Developer- Frontend, Backend     |
-| Pavithra B              | Assistant Chatbot Developer                    |
-| Archana M               | Assistant Frontend Developer                   |
-| Amirthavarshini         | Documentation of Application                   |
-| Shruthika               | Content Writer                                 |
+## 👥 Project Team
+```bash
+
+| Name              | Register Number     | Role                                          | Email                         |
+|-------------------|---------------------|-----------------------------------------------|------------------------------ |
+| Kiruthigaa K      | 513423104010        | Project Lead, Developer – ATS & ChatBot       | krithikaarajkumaar@gmail.com  |
+| Pooja M           | 513423104036        | Project Co-Ord, Developer – Frontend, Backend | 2308poojamurugan@gmail.com    |
+| Pavithra B        | 513423104034        | Assistant Chatbot Developer                   | pavi23125@gmail.com           |
+| Archana M         | 513423104054        | Assistant Frontend Developer                  | aarchana93085@gmail.com       |
+| Amirthavarshini P | 513423104049        | Documentation of Application                  | amrithavarshini2466@gmail.com |
+| Suruthiga R       | 513423104701        | Content Writer                                | suruthigha2207@gmail.com      |
+
+```
 
 
 

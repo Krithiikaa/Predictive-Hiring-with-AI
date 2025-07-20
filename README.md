@@ -29,7 +29,7 @@ An intelligent, Streamlit-based web app that predicts a candidate's **hiring pot
 | 💻 Frontend    | Streamlit, HTML/CSS                        |
 | 🧠 Backend     | Python, FastAPI (optional)                 |
 | 📊 ML Model    | Scikit-learn, Pandas                       |
-| 🗃️ Database     | Supabase (PostgreSQL)                     |
+| 🗃️ Database    | Supabase (PostgreSQL)                      |
 | 🔐 Auth        | Supabase Auth + RLS                        |
 | 🌍 Hosting     | GitHub + Streamlit Cloud                   |
 ```
@@ -93,47 +93,35 @@ predictive-hiring-app/
 ---
 
 🎯 How It Works
-User submits the candidate details via a form.
 
-The trained ML model predicts whether the candidate is suitable (Hired or Not Hired).
-
-The result page shows:
-
-Prediction result
-
-Personalized suggestions for improvement
-
-Feature importance graph
-
-Admin can log in to:
-
-View historical predictions
-
-Analyze hiring trends via graphs
+➣ User submits the candidate details via a form.
+➣ The trained ML model predicts whether the candidate is suitable (Hired or Not Hired).
+➣ The result page shows:
+➣ Prediction result
+➣ Personalized suggestions for improvement
+➣ Feature importance graph
+➣ Admin can log in to:
+➣ View historical predictions
+➣ Analyze hiring trends via graphs
 
 🧠 Machine Learning Model
-Trained using scikit-learn based on features like experience, interview score, certifications, etc.
 
-Saved as predictive_model.pkl in the backend/model/ folder.
-
-Re-trainable via train_model.py.
+➢ Trained using scikit-learn based on features like experience, interview score, certifications, etc.
+➢ Saved as predictive_model.pkl in the backend/model/ folder.
+➢ Re-trainable via train_model.py.
 
 💬 Chatbot Assistant (Optional Feature)
-Integrated support chatbot available in Hiring_assistant.py.
 
-Can answer predefined HR queries or interact via API (OpenAI or local).
+✮ Integrated support chatbot available in Hiring_assistant.py.
+✮ Can answer predefined HR queries or interact via API (OpenAI or local).
 
 🔒 Authentication
-Login page available for both Admin and User
 
-Credentials stored in users.csv
-
-Access-based redirection to:
-
-Prediction Form (User)
-
-Admin Dashboard (Admin)
-
+➤ Login page available for both Admin and User
+➤ Credentials stored in users.csv
+➤ Access-based redirection to:
+➤ Prediction Form (User)
+➤ Admin Dashboard (Admin)
 
 
 ## 🌐 Deployment Instructions (Streamlit Cloud)

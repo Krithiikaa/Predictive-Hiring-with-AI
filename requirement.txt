@@ -1,14 +1,13 @@
-pandas 
-numpy 
-matplotlib 
-scipy 
-scikit-learn 
-streamlit 
-pdfplumber 
-pytesseract 
-python-docx 
-opencv-python-headless 
-spacy 
-spacy download en_core_web_sm 
-transformers 
-cohere 
+pandas
+numpy
+matplotlib
+scipy
+scikit-learn
+streamlit
+pdfplumber
+pytesseract
+python-docx
+opencv-python-headless
+spacy
+transformers
+cohere
